@@ -1,8 +1,8 @@
 window.onload = pageload;
 
 function pageload() {
-    var resigform = document.getElementById("registerform");
-    resigform.onsubmit = submitregister;
+    var but = document.getElementById("registerbut");
+    but.onclick = submitregister;
 }
 
 function submitregister() {
@@ -11,7 +11,6 @@ function submitregister() {
 
     if (regpass == retrypass) {
         confirmregister();
-        alert("Register Success.");
     } else {
         alert("Password not match!");
         document.forms["registerform"]["password"].value = "";
@@ -21,7 +20,7 @@ function submitregister() {
 }
 
 const confirmregister = (async() => {
-    fetch("/registerform", {
+    await fetch("/registerform", {
         method: "POST",
         headers: {
             'Accept': 'application/json',
@@ -36,8 +35,15 @@ const confirmregister = (async() => {
             birthday: document.forms["registerform"]["bday"].value
         })
     }).then((response) => {
-        response.json().then(() => {
-            console.log("register success");
+        response.json().then((data) => {
+            // console.log(response);
+            // console.log(data);
+            if (data == true) {
+                alert("Register Success.");
+                document.getElementById("registerform").submit();
+            } else {
+                alert("Register Fail.");
+            }
         });
     }).catch((err) => {
         console.log(err);

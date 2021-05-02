@@ -5,6 +5,8 @@ const port = 3001;
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
+const parser = require('js-sql-parser');
+
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,7 +44,27 @@ app.post("/registerform", async(req, res) => {
     sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}")`;
     result = await queryDB(sql);
     console.log("Register Success!");
-    res.end();
+    res.end("true");
+})
+
+app.post("/loginform", async(req, res) => {
+    let sqldata = `SELECT email,password FROM userInfo WHERE email = '${req.body.email}'`;
+    let resultdata = await queryDB(sqldata);
+    console.log(resultdata[0].email + " = " + req.body.email);
+    console.log(resultdata[0].password + " = " + req.body.password);
+
+    if (resultdata[0].email == req.body.email) {
+        if (resultdata[0].password == req.body.password) {
+            console.log("Login successfully");
+            res.end("true");
+        } else {
+            console.log("Email or Password not correct");
+            res.end("false");
+        }
+    } else {
+        console.log("Email or Password not correct");
+        res.end("false");
+    }
 })
 
 app.post("/updateData", async(req, res) => {
