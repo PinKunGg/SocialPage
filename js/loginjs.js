@@ -24,9 +24,12 @@ const sendsubmitlogin = (async() => {
                 console.log("true!!");
                 alert("Login success");
                 document.getElementById("loginform").submit();
-            } else {
+            } else if (data == false) {
                 console.log("false!!");
                 alert("Email or Password not correct");
+            } else {
+                console.log("null!!");
+                alert("Not found any Email in database");
             }
         });
     }).catch((err) => {

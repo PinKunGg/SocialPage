@@ -37,14 +37,14 @@ const readAllPost = (async() => {
     await fetch("/readallpost").then((response) => {
         response.json().then((data) => {
             console.log(data);
-            if (data == "Not found and post") {
-                posterror(data);
+            if (data == "No post found") {
+                posterror(0);
             } else {
                 postfeed(data);
             }
 
         }).catch((err) => {
-            posterror(err);
+            posterror(err)
         })
     })
 })
@@ -59,7 +59,7 @@ function postfeed(data) {
         feedcontainer.removeChild(feedcontainer.lastChild);
     }
 
-    for (var i = postkeys.length - 1; i > -1; i--) {
+    for (var i = postkeys.length - 1; i >= 0; i--) {
         var post = document.createElement("div");
         var content = document.createElement("p");
         var username = document.createElement("h3");
@@ -90,14 +90,21 @@ function postfeed(data) {
     }
 }
 
-function posterror(data) {
+function posterror(errlist) {
+    console.log(errlist);
+
     var post = document.createElement("div");
     var content = document.createElement("p");
     var username = document.createElement("h3");
     var endcontent = document.createElement("hr");
 
-    content.innerHTML = data;
-    username.innerHTML = "System";
+    if (errlist == 0) {
+        content.innerHTML = "No post found ;(";
+        username.innerHTML = "[System]";
+    } else {
+        content.innerHTML = errlist;
+        username.innerHTML = "[System]";
+    }
 
     post.appendChild(username);
     post.appendChild(content);

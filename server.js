@@ -48,20 +48,28 @@ app.post("/registerform", async(req, res) => {
 app.post("/loginform", async(req, res) => {
     let sqldata = `SELECT email,password FROM userInfo WHERE email = '${req.body.email}'`;
     let resultdata = await queryDB(sqldata);
-    console.log(resultdata[0].email + " = " + req.body.email);
-    console.log(resultdata[0].password + " = " + req.body.password);
 
-    if (resultdata[0].email == req.body.email) {
-        if (resultdata[0].password == req.body.password) {
-            console.log("Login successfully");
-            res.end("true");
+    console.log(resultdata);
+
+    if (resultdata != "") {
+        console.log(resultdata[0].email + " = " + req.body.email);
+        console.log(resultdata[0].password + " = " + req.body.password);
+
+        if (resultdata[0].email == req.body.email) {
+            if (resultdata[0].password == req.body.password) {
+                console.log("Login success");
+                res.end("true");
+            } else {
+                console.log("Email or Password not correct");
+                res.end("false");
+            }
         } else {
             console.log("Email or Password not correct");
             res.end("false");
         }
     } else {
-        console.log("Email or Password not correct");
-        res.end("false");
+        console.log("null");
+        res.end("null");
     }
 })
 
@@ -105,6 +113,7 @@ const readPost = async() => {
         con.query("SELECT * FROM postInfo", function(err, result, fields) {
             if (err) {
                 console.log(err);
+                resolve(JSON.stringify("No post found", null, "\t"));
                 reject(err);
             } else {
                 console.log("Read Success!");
