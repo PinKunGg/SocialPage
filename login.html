@@ -6,23 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="pic/favicon_32px.ico" sizes="32x32" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <title>Twinkle Hub</title>
 </head>
 
 <body>
-    <p>Twinkle Hub Login</p>
+    <div class="header">
+        <div class="header-01"><p>Welcome to</p></div>
+        <div class="header-02">            
+            <span contenteditable="true">Twinkle</span>
+            <span contenteditable="true">Hub</span>
+        </div>        
+    </div>    
     <form action="home.html" id="loginform" name="loginform">
-        <fieldset>
-            <legend>Login</legend>
-            <span>* require</span> <br>
-            <p>Email* : <input type="email" name="email" placeholder="Email" required></p>
-            <p>Password* : <input type="password" name="password" placeholder="Password" required></p>
-            <hr>
-            <a href="index.html"><Button type="button">Back</Button></a>
-            <button type="button" id="loginbut">Login</button>
-        </fieldset>
+        <div class="login-box">
+            <div class="login-head">
+                <h3>Login</h3>  
+            </div>                      
+            <div class = input-feild>                
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>                
+            </div>   
+            <div class="button-div">
+                <button type="button" class="toggle-but" id="loginbut">Login</button>  
+                <br>
+                <a href="#">Do you forgot your password?</a>      
+                <hr>
+                <a href="index.html"><button type="button" class="toggle-but-back">Back</button></a>
+            </div>                        
+        </div>        
     </form>
-    <br>
+    
     <!-- <button id="eiei">YOLO</button> -->
     <script src="js/loginjs.js"></script>
 </body>
