@@ -5,11 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="pic/favicon_32px.ico" sizes="32x32" />
     <title>Twinkle Hub</title>
 </head>
 
 <body>
     <p>Twinkle Hub Home</p>
+    <p>
+        <a href="index.html"><button type="button">Logout</button></a>
+    </p>
+    <div id="post">
+        <fieldset>
+            <legend>Post</legend>
+            <input type="text" name="username" id="username" value="Test001">
+            <p>
+                <textarea name="postinput" id="postinput" cols="50" rows="5" placeholder="Hello world"></textarea>
+            </p>
+            <button type="button" id="submitpost">Post</button>
+        </fieldset>
+    </div>
+    <div id="feedTitle">
+        <h1>All Post</h1>
+        <hr>
+    </div>
+    <div id="feedcontainer">
+
+    </div>
     <script src="js/homejs.js"></script>
 </body>
 

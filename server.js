@@ -5,8 +5,6 @@ const port = 3001;
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
-const parser = require('js-sql-parser');
-
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -67,12 +65,54 @@ app.post("/loginform", async(req, res) => {
     }
 })
 
-app.post("/updateData", async(req, res) => {
+app.post("/resetPassword", async(req, res) => {
     let sql = `UPDATE ${tablename} SET password = '${req.body.password}' WHERE email = '${req.body.email}'`;
     let result = await queryDB(sql);
     console.log(result);
     res.end("Record updated successfully");
 })
+
+let postdata = null;
+
+app.post("/submitpost", async(req, res) => {
+    //console.log(req.body);
+    writePost(req.body);
+    postdata = await readPost();
+    console.log("Send data to client!")
+    res.end(postdata);
+})
+
+app.get("/readallpost", async(req, res) => {
+    postdata = await readPost();
+    console.log("Send data to client!")
+    res.end(postdata);
+})
+
+const writePost = async(data) => {
+    return new Promise((resolve, rejects) => {
+        //console.log(data);
+        let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date TIMESTAMP, username VARCHAR(255),post VARCHAR(255),like_count VARCHAR(100))";
+        let result = queryDB(sql);
+        sql = `INSERT INTO postInfo (username, post, like_count) VALUES ("${data.username}", "${data.post}", "${data.likecount}")`;
+        result = queryDB(sql);
+        console.log("Post Success!");
+        resolve("Post Success!");
+    })
+}
+
+const readPost = async() => {
+    return new Promise((resolve, reject) => {
+        con.query("SELECT * FROM postInfo", function(err, result, fields) {
+            if (err) {
+                console.log(err);
+                reject(err);
+            } else {
+                console.log("Read Success!");
+                resolve(JSON.stringify(result, null, "\t"));
+            }
+        })
+    })
+}
 
 app.listen(port, hostname, () => {
     console.log(`Server running at   http://${hostname}:${port}/`);
