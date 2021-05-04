@@ -6,37 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="pic/favicon_32px.ico" sizes="32x32" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <title>Twinkle Hub</title>
 </head>
 
-<body>
-    <p>Twinkle Hub Register</p>
+<body>    
     <form action="login.html" id="registerform" name="registerform">
-        <fieldset>
-            <legend>Register</legend>
-            <span>* require</span> <br>
-            <p>Firstname* : <input type="text" name="firstname" placeholder="Firstname" required></p>
-            <p>Lastname* : <input type="text" name="lastname" placeholder="Lastname" required></p>
-            <br>
-            <p>
-                Gender* :
-                <input type="radio" name="gender" value="male" required>Male
-                <input type="radio" name="gender" value="female" required>Female
-                <input type="radio" name="gender" value="female" required>Other
-            </p>
-            <br>
-            <p>
-                Birthday* :
-                <input type="date" name="bday" value="" required>
-            </p>
-            <br>
-            <p>Email* : <input type="email" name="email" placeholder="Email" required></p>
-            <p>Password* : <input type="password" name="password" placeholder="Password" required></p>
-            <p>Confirm Password* : <input type="password" name="con_password" placeholder="Confirm Password" required></p>
-            <hr>
-            <a href="index.html"><Button type="button" >Back</Button></a>
-            <button type="button" id="registerbut">Register</button>
-        </fieldset>
+        <div class="register-box">
+            <div class="login-head">
+                <h3>Register</h3>
+            </div>     
+            <div class="input-feild-regis">
+               <input type="text" name="firstname" placeholder="Firstname" required>
+               <input type="text" name="lastname" placeholder="Lastname" required>   
+            </div> 
+            <div class="input-feild-regisGender">
+                <p>
+                    Gender 
+                    <input type="radio" name="gender" value="male" required>Male
+                    <input type="radio" name="gender" value="female" required>Female
+                    <input type="radio" name="gender" value="female" required>Other
+                </p> 
+            </div>           
+            <div class="input-feild-regisBD">                
+                    Birthday <input type="date" name="bday" value="" required>               
+            </div>           
+            <div class="input-feild-regis">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="con_password" placeholder="Confirm Password" required>
+                <hr>
+            </div>      
+            <div class="button-div"> 
+                <a href="index.html"><Button type="button" class="toggle-but02">Back</Button></a>
+                <button type="button" class="toggle-but02" id="registerbut">Register</button>
+            </div>                 
+        </div>       
     </form>
     <br>
     <script src="js/registerjs.js"></script>
