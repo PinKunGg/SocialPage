@@ -39,14 +39,22 @@ app.post("/registerform", async(req, res) => {
     console.log(req.body);
     let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, email VARCHAR(255),password VARCHAR(100),firstname VARCHAR(100),lastname VARCHAR(100),gender VARCHAR(100),birthday VARCHAR(100))";
     let result = await queryDB(sql);
-    sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}")`;
-    result = await queryDB(sql);
-    console.log("Register Success!");
-    res.end("true");
+    let sqldata = `SELECT email FROM userInfo WHERE email = '${req.body.email}'`;
+    let resultdata = await queryDB(sqldata);
+
+    if (resultdata != "") {
+        sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}")`;
+        result = await queryDB(sql);
+        console.log("Register Success!");
+        res.end("true");
+    } else {
+        console.log("Register Not Success!");
+        res.end("false");
+    }
 })
 
 app.post("/loginform", async(req, res) => {
-    let sqldata = `SELECT email,password FROM userInfo WHERE email = '${req.body.email}'`;
+    let sqldata = `SELECT email,password,firstname FROM userInfo WHERE email = '${req.body.email}'`;
     let resultdata = await queryDB(sqldata);
 
     console.log(resultdata);
@@ -57,6 +65,7 @@ app.post("/loginform", async(req, res) => {
 
         if (resultdata[0].email == req.body.email) {
             if (resultdata[0].password == req.body.password) {
+                res.cookie('username', resultdata[0].firstname, { maxAge: 86400000 }, 'path =/')
                 console.log("Login success");
                 res.end("true");
             } else {
@@ -80,6 +89,11 @@ app.post("/resetPassword", async(req, res) => {
     res.end("Record updated successfully");
 })
 
+app.get("/logout", (req, res) => {
+    res.clearCookie("username");
+    return res.redirect('index.html');
+})
+
 let postdata = null;
 
 app.post("/submitpost", async(req, res) => {
@@ -97,7 +111,7 @@ app.get("/readallpost", async(req, res) => {
 })
 
 const writePost = async(data) => {
-    return new Promise((resolve, rejects) => {
+    return new Promise((resolve, reject) => {
         //console.log(data);
         let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date TIMESTAMP, username VARCHAR(255),post VARCHAR(255),like_count VARCHAR(100))";
         let result = queryDB(sql);

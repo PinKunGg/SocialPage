@@ -1,9 +1,28 @@
+function checkCookie() {
+    var username = "";
+    if (getCookie("username") == false) {
+        window.location = "index.html";
+    }
+}
+
+checkCookie();
 window.onload = pageload;
+
+function getCookie(name) {
+    var value = "";
+    try {
+        value = document.cookie.split("; ").find(row => row.startsWith(name)).split('=')[1]
+        return value
+    } catch (err) {
+        return false
+    }
+}
 
 function pageload() {
     readAllPost();
     var postbut = document.getElementById("submitpost");
     postbut.onclick = submitpost;
+    document.getElementById("username").innerHTML = getCookie("username");
 }
 
 const submitpost = (async() => {
@@ -15,7 +34,7 @@ const submitpost = (async() => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                username: document.getElementById("username").value,
+                username: document.getElementById("username").innerHTML,
                 post: document.getElementById("postinput").value,
                 likecount: "0",
             })
