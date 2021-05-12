@@ -6,31 +6,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="pic/favicon_32px.ico" sizes="32x32" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <title>Twinkle Hub</title>
 </head>
 
 <body>
-    <p>Twinkle Hub Home</p>
-    <p>
-        <a href="index.html"><button type="button">Logout</button></a>
-    </p>
-    <div id="post">
-        <fieldset>
-            <legend>Post</legend>
-            <input type="text" name="username" id="username" value="Test001">
-            <p>
-                <textarea name="postinput" id="postinput" cols="50" rows="5" placeholder="Hello world"></textarea>
-            </p>
-            <button type="button" id="submitpost">Post</button>
-        </fieldset>
-    </div>
-    <div id="feedTitle">
-        <h1>All Post</h1>
-        <hr>
-    </div>
-    <div id="feedcontainer">
-
-    </div>
+    <div class="navbar">        
+        <div class="navbar-logo">            
+            <span contenteditable="true">Twinkle</span>
+            <span contenteditable="true">Hub</span>            
+        </div>   
+        <div class="navbar-option">
+            <ul>
+                <li><a href="#>"><img id="navpic" src="pic/home.png"></a></li>
+                <div class="dropdown">
+                    <li><img id="navpic" src="pic/menu.png" class="dropbtn"></button></li>
+                    <div class="dropdown-content">
+                        <a href="#">Profile</a>
+                        <hr>
+                        <a href="index.html">Logout</a>
+                    </div>
+                </div>                
+            </ul>          
+        </div>      
+    </div>    
+    <div class="main">
+        <div class="grid-container">
+            <div id="user-boxbg">
+                <div class="user-box">
+                    <img src="pic/user.png">                
+                </div>
+            </div>
+            <div id="namebox">
+                <input type="text" name="username" id="username" value="Test001">
+            </div> 
+            <div id="bgpost-box">            
+                <div id="post">         
+                    <p>
+                        <textarea name="postinput" id="postinput" cols="50" rows="5" placeholder="Hello world"></textarea>
+                    </p>                           
+                </div>
+                <div class="postbut-div">
+                    <button type="button" class="post-but" id="submitpost">Post</button>
+                </div>            
+            </div>   
+            <div id="feedTitle">
+                <h1>All Post</h1>
+                <hr>
+            </div>
+            <div id="feedcontainer">   
+                            
+            </div>   
+        </div>
+    </div>    
     <script src="js/homejs.js"></script>
 </body>
 
