@@ -11,54 +11,66 @@
 </head>
 
 <body>
-    <div class="navbar">        
-        <div class="navbar-logo">            
+    <div class="navbar">
+        <div class="navbar-logo">
             <span contenteditable="true">Twinkle</span>
-            <span contenteditable="true">Hub</span>            
-        </div>   
+            <span contenteditable="true">Hub</span>
+        </div>
         <div class="navbar-option">
             <ul>
-                <li><a href="#>"><img id="navpic" src="pic/home.png"></a></li>
+                <li>
+                    <a href="#>"><img id="navpic" src="pic/home.png"></a>
+                </li>
                 <div class="dropdown">
-                    <li><img id="navpic" src="pic/menu.png" class="dropbtn"></button></li>
+                    <li><img id="navpic" src="pic/menu.png" class="dropbtn"></button>
+                    </li>
                     <div class="dropdown-content">
                         <a href="#">Profile</a>
                         <hr>
-                        <a href="index.html">Logout</a>
+                        <a href="/logout">Logout</a>
                     </div>
-                </div>                
-            </ul>          
-        </div>      
-    </div>    
+                </div>
+            </ul>
+        </div>
+    </div>
     <div class="main">
         <div class="grid-container">
             <div id="user-boxbg">
                 <div class="user-box">
-                    <img src="pic/user.png">                
+                    <img src="pic/user.png">
                 </div>
             </div>
             <div id="namebox">
-                <input type="text" name="username" id="username" value="Test001">
-            </div> 
-            <div id="bgpost-box">            
-                <div id="post">         
+                <!-- <input type="text" name="username" id="username" value="Test001"> -->
+                <span name="username" id="username"></span>
+            </div>
+            <div id="bgpost-box">
+                <div id="post">
                     <p>
                         <textarea name="postinput" id="postinput" cols="50" rows="5" placeholder="Hello world"></textarea>
-                    </p>                           
+                    </p>
                 </div>
                 <div class="postbut-div">
                     <button type="button" class="post-but" id="submitpost">Post</button>
-                </div>            
-            </div>   
+                </div>
+            </div>
             <div id="feedTitle">
                 <h1>All Post</h1>
                 <hr>
             </div>
-            <div id="feedcontainer">   
-                            
-            </div>   
+            <div id="feedcontainer">
+                <div>
+                    <h3>User</h3>
+                    <p>content</p>
+                    <span>0</span>
+                    <button type="button">like</button>
+                    <br>
+                    <small>2021-05-13 / 01:16</small>
+                    <hr>
+                </div>
+            </div>
         </div>
-    </div>    
+    </div>
     <script src="js/homejs.js"></script>
 </body>
 

@@ -46,7 +46,7 @@ app.post("/registerform", async(req, res) => {
 })
 
 app.post("/loginform", async(req, res) => {
-    let sqldata = `SELECT email,password FROM userInfo WHERE email = '${req.body.email}'`;
+    let sqldata = `SELECT email,password,firstname FROM userInfo WHERE email = '${req.body.email}'`;
     let resultdata = await queryDB(sqldata);
 
     console.log(resultdata);
@@ -57,6 +57,7 @@ app.post("/loginform", async(req, res) => {
 
         if (resultdata[0].email == req.body.email) {
             if (resultdata[0].password == req.body.password) {
+                res.cookie('username', resultdata[0].firstname, { maxAge: 86400000 }, 'path =/')
                 console.log("Login success");
                 res.end("true");
             } else {
@@ -78,6 +79,11 @@ app.post("/resetPassword", async(req, res) => {
     let result = await queryDB(sql);
     console.log(result);
     res.end("Record updated successfully");
+})
+
+app.get("/logout", (req, res) => {
+    res.clearCookie('username');
+    return res.redirect('index.html');
 })
 
 let postdata = null;

@@ -1,6 +1,7 @@
 window.onload = pageload;
 
 function pageload() {
+    document.cookie = "username=;"
     var but = document.getElementById("loginbut");
     but.onclick = sendsubmitlogin;
 }

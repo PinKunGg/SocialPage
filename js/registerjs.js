@@ -1,6 +1,7 @@
 window.onload = pageload;
 
 function pageload() {
+    document.cookie = "username=;"
     var but = document.getElementById("registerbut");
     but.onclick = submitregister;
 }
@@ -11,10 +12,13 @@ function submitregister() {
 
     if (regpass == retrypass) {
         confirmregister();
-    } else {
+    } else if (regpass != retrypass) {
         alert("Password not match!");
         document.forms["registerform"]["password"].value = "";
         document.forms["registerform"]["con_password"].value = "";
+        return false;
+    } else {
+        alert("Fill out all requied!");
         return false;
     }
 }

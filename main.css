@@ -1,11 +1,14 @@
-body{
+body {
     margin: 0;
-    padding: 0;    
+    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #011814;  
+    background-color: #011814;
 }
+
+
 /*index.html*/
-.index-center{
+
+.index-center {
     margin: auto;
     position: absolute;
     top: 50%;
@@ -13,39 +16,42 @@ body{
     margin-right: -50%;
     transform: translate(-50%, -68%);
 }
-.index-header{
-    text-align: center;   
+
+.index-header {
+    text-align: center;
     font-size: 48px;
-    margin: 130px;    
-    letter-spacing: 0.045em;    
-    color: #0CE8C0;    
+    margin: 130px;
+    letter-spacing: 0.045em;
+    color: #0CE8C0;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.index-header-02{
+
+.index-header-02 {
     display: block;
-    font-weight: bold;  
-    font-size: 66px;  
+    font-weight: bold;
+    font-size: 66px;
     letter-spacing: 0.045em;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
-.index-header-02 span:nth-child(2){
+
+.index-header-02 span:nth-child(2) {
     background: #0CE8C0;
     color: #2B382D;
     border-radius: 1vw;
     padding: 0 0.5vw 0.5vw 0.5vw;
     display: inline-block;
 }
-.index-toggle-but{    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
-    font-size: 18px;    
+
+.index-toggle-but {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
     width: 105px;
-    height: 40px;    
+    height: 40px;
     background: 0;
-    border:0;    
-    outline: none;    
+    border: 0;
+    outline: none;
     margin-right: 20px;
     margin-left: 20px;
-    
     color: #2B382D;
     background: #0CE8C0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -53,29 +59,34 @@ body{
     border-radius: 5px;
 }
 
+
 /*login.html*/
-.header{    
-    text-align: center;   
+
+.header {
+    text-align: center;
     font-size: 32px;
-    letter-spacing: 0.045em;    
-    color: #0CE8C0;    
+    letter-spacing: 0.045em;
+    color: #0CE8C0;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-.header-02{
+
+.header-02 {
     display: block;
-    font-weight: bold;  
-    font-size: 40px;  
+    font-weight: bold;
+    font-size: 40px;
     letter-spacing: 0.045em;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
-.header-02 span:nth-child(2){
+
+.header-02 span:nth-child(2) {
     background: #0CE8C0;
     color: #2B382D;
     border-radius: 1vw;
     padding: 0 0.5vw 0.5vw 0.5vw;
     display: inline-block;
 }
-.login-box{    
+
+.login-box {
     width: 350px;
     height: 467px;
     margin: auto;
@@ -84,33 +95,32 @@ body{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -35%);
-
     background: rgb(224, 224, 224);
-    
     border-radius: 15px;
 }
-.login-head{   
+
+.login-head {
     padding: 1%;
 }
-.login-head h3{    
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+
+.login-head h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
     font-size: 36px;
-    line-height: 5px;   
-    
+    line-height: 5px;
     align-items: center;
     text-align: center;
     letter-spacing: 0.045em;
-    
     color: #069F84;
-    
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
 }
-.input-feild{
+
+.input-feild {
     text-align: center;
 }
-.input-feild input{  
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+
+.input-feild input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
     font-size: 18px;
     line-height: 28px;
@@ -120,13 +130,13 @@ body{
     border-left: 0;
     border-top: 0;
     border-right: 0;
-
     text-align: center;
-    
     background: #FFFFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
+
+
 /*#user{    
     width: 37px;
     height: 37px;
@@ -134,52 +144,56 @@ body{
     top: 490px;
     opacity: 25%;
 }*/
-.button-div{
+
+.button-div {
     text-align: center;
 }
-.button-div a{
-    color: #757575;   
-    text-decoration: none; 
+
+.button-div a {
+    color: #757575;
+    text-decoration: none;
 }
-.button-div a:hover{
-    opacity: 70%;    
+
+.button-div a:hover {
+    opacity: 70%;
 }
-.toggle-but{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
+
+.toggle-but {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     padding: 10px;
     width: 300px;
-    height: 60px;    
+    height: 60px;
     background: 0;
-    border:0;
-    outline: none;     
-
+    border: 0;
+    outline: none;
     color: #664e4e;
     background: #0CE8C0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);  
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
 }
-.toggle-but-back{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
+
+.toggle-but-back {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     padding: 10px;
     width: 220px;
-    height: 60px;    
+    height: 60px;
     background: 0;
-    border:0;
-    outline: none;     
-
+    border: 0;
+    outline: none;
     color: #664e4e;
     background: #0CE8C0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);  
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
 }
 
 
 /*register.html*/
-.register-box{
+
+.register-box {
     width: 350px;
     height: 580px;
     margin: auto;
@@ -188,435 +202,460 @@ body{
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
-    background: rgb(224, 224, 224);    
+    background: rgb(224, 224, 224);
     border-radius: 15px;
 }
-.input-feild-regis{
+
+.input-feild-regis {
     text-align: center;
 }
-.input-feild-regis input{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+
+.input-feild-regis input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
     font-size: 16px;
     line-height: 18px;
     width: 300px;
     height: 40px;
-    margin: 8px 0;    
+    margin: 8px 0;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-
     padding-left: 15px;
-
     background: #FFFFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
-.input-feild-regisGender{
+
+.input-feild-regisGender {
     padding-left: 20px;
-    word-spacing: 18px; 
+    word-spacing: 18px;
 }
-.input-feild-regisBD{
-    padding-left: 20px; 
-    word-spacing: 27px;   
+
+.input-feild-regisBD {
+    padding-left: 20px;
+    word-spacing: 27px;
 }
-.input-feild-regisBD input{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+
+.input-feild-regisBD input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
-    font-size: 14px;    
+    font-size: 14px;
     line-height: 18px;
     width: 200px;
     height: 40px;
-    margin: 8px 0;    
+    margin: 8px 0;
     margin-right: 20px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
     padding-left: 15px;
-    padding-left: 20px; 
-
+    padding-left: 20px;
     background: #FFFFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
-.toggle-but02{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
+
+.toggle-but02 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16px;
     padding: 5px;
     width: 150px;
-    height: 40px;    
+    height: 40px;
     background: 0;
-    border:0;
-    outline: none;   
-
+    border: 0;
+    outline: none;
     color: #664e4e;
     background: #0CE8C0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);  
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
 }
 
+
 /*resetpassword.html*/
-.resetpass-box{
+
+.resetpass-box {
     width: 380px;
-    height: 375px;    
+    height: 375px;
     margin: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-
-    background: rgb(224, 224, 224);    
+    background: rgb(224, 224, 224);
     border-radius: 15px;
 }
-.input-feild-reset{
+
+.input-feild-reset {
     text-align: center;
 }
-.input-feild-reset input{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    
+
+.input-feild-reset input {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
     font-size: 16px;
     line-height: 18px;
     width: 300px;
     height: 50px;
-    margin: 9px 0;    
+    margin: 9px 0;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-
     padding-left: 15px;
-
     background: #FFFFFF;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
+
 /*home.html*/
-.navbar{     
+
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 70px;
     background-color: #026755;
 }
-.navbar-logo{
-    display: block;
-    font-weight: bold;  
-    font-size: 36px;  
-    padding-left: 20px;    
 
+.navbar-logo {
+    display: block;
+    font-weight: bold;
+    font-size: 36px;
+    padding-left: 20px;
     letter-spacing: 0.035em;
     color: #FFFFFF;
 }
-.navbar-logo span:nth-child(2){
+
+.navbar-logo span:nth-child(2) {
     background: #0CE8C0;
     color: #2B382D;
     border-radius: 0.8vw;
     padding: 0 0.5vw 0.5vw 0.5vw;
     display: inline-block;
 }
-.navbar-option ul{
-    display: flex;     
+
+.navbar-option ul {
+    display: flex;
 }
-.navbar-option li{    
+
+.navbar-option li {
     list-style: none;
-    margin-right: 20px;    
+    margin-right: 20px;
     width: 55px;
     height: 55px;
     background-color: #06B999;
-    border-radius: 20px;   
-    padding: 0 1px 1px 1px;  
+    border-radius: 20px;
+    padding: 0 1px 1px 1px;
 }
-.navbar-option li:hover{
+
+.navbar-option li:hover {
     opacity: 70%;
 }
-#navpic{  
-    position: absolute;  
+
+#navpic {
+    position: absolute;
     width: 35px;
     height: 35px;
     opacity: 50%;
-    padding-left: 10px;   
+    padding-left: 10px;
     -ms-transform: translateY(25%);
     transform: translateY(25%);
 }
-.dropdown{
-    float: left;    
+
+.dropdown {
+    float: left;
 }
-.dropdown .dropbtn{    
+
+.dropdown .dropbtn {
     margin: 0;
 }
-.navbar a:hover, .dropdown:hover .dropbtn {
+
+.navbar a:hover,
+.dropdown:hover .dropbtn {
     opacity: 70%;
-  }   
-.dropdown-content{ /* Dropdown content (hidden by default) */
+}
+
+.dropdown-content {
+    /* Dropdown content (hidden by default) */
     display: none;
-    position: absolute;    
-    background-color: #f9f9f9;   
+    position: absolute;
+    background-color: #f9f9f9;
     border-radius: 15px;
 }
-.dropdown-content a{
+
+.dropdown-content a {
     display: block;
     font-weight: lighter;
     color: black;
     text-decoration: none;
     text-align: left;
-    padding: 8px 12px;    
+    padding: 8px 12px;
 }
-.dropdown-content a:hover {    
-    opacity: 70%;       
-  }
+
+.dropdown-content a:hover {
+    opacity: 70%;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
-  }
-.main{
-    
 }
-.grid-container{          
+
+.main {}
+
+.grid-container {
     /*display: flex;
     align-items: center;
-    justify-content: center;*/     
+    justify-content: center;*/
     /*padding-right: 31.5%;
     /*transform: translate(50%, 0%);*/
     display: grid;
     /*grid-template-columns: 17.5% auto; */
     grid-auto-flow: column;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     row-gap: 1.5%;
     margin-top: 1.5%;
 }
-#user-boxbg{    
+
+#user-boxbg {
     grid-column: 1/span 1;
     width: 160px;
-    height: 160px;    
+    height: 160px;
     background-color: #d6d5d5;
-    border-radius: 30px; 
+    border-radius: 30px;
     margin-right: 10%;
 }
-.user-box{        
+
+.user-box {
     width: 140px;
     height: 140px;
     background-color: #FDFDFD;
-    border-radius: 20px;   
+    border-radius: 20px;
     transform: translate(7%, 7.5%);
 }
-.user-box img{
+
+.user-box img {
     width: 120px;
     height: 120px;
-    opacity: 50%;   
-    transform: translate(8%, 7%); 
+    opacity: 50%;
+    transform: translate(8%, 7%);
 }
-#namebox{
+
+#namebox {
     /*margin-left: 5%;*/
     grid-column: 2/span 1;
     /*transform: translate(0, 25%);*/
     vertical-align: middle;
     margin-left: 10%;
 }
-.grid-container input{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;       
-    font-size: 24px;    
+
+.grid-container span {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
     width: 200px;
-    height: 45px;      
+    height: 45px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
-
     text-align: center;
     vertical-align: middle;
-
     color: #664e4e;
     background: #0CE8C0;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
-#bgpost-box{   
-    grid-column: 1/span 3; 
+
+#bgpost-box {
+    grid-column: 1/span 3;
     width: 900px;
-    height: 285px;  
+    height: 285px;
     margin-top: 1.5%;
-    background-color: #d6d5d5;     
-    border-radius: 30px;    
+    background-color: #d6d5d5;
+    border-radius: 30px;
 }
-#post{
+
+#post {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
-#bgpost-box textarea{
+
+#bgpost-box textarea {
     width: 820px;
     height: 215px;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    font-size: 18px;   
-    background-color: #FDFDFD; 
-    resize: none;   
-    border: none; 
+    font-size: 18px;
+    background-color: #FDFDFD;
+    resize: none;
+    border: none;
     border-radius: 20px;
 }
-.postbut-div{
-    text-align: right;    
+
+.postbut-div {
+    text-align: right;
     padding-right: 5%;
 }
-.postbut-div a:hover{
-    opacity: 70%;    
+
+.postbut-div a:hover {
+    opacity: 70%;
 }
-.post-but{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
+
+.post-but {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     padding: 10px;
     width: 80px;
-    height: 45px;    
+    height: 45px;
     background: 0;
-    border:0;
-    outline: none;     
-
+    border: 0;
+    outline: none;
     color: #664e4e;
     background: #0CE8C0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);  
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 10px;
 }
-#feedTitle{
-    grid-column: 1/span 3;    
+
+#feedTitle {
+    grid-column: 1/span 3;
     color: rgb(224, 255, 243);
 }
-#feedcontainer{
-    grid-column: 1/span 3; 
-    color: rgb(224, 255, 243);        
+
+#feedcontainer {
+    grid-column: 1/span 3;
+    color: rgb(224, 255, 243);
 }
 
+
 /*Responsive design for mobile mode*/
-@media only screen and (max-width: 480px){
+
+@media only screen and (max-width: 480px) {
     /*index page*/
-    .index-center{
+    .index-center {
         transform: translate(-50%, -77%);
     }
-    .index-header{
+    .index-header {
         font-size: 28px;
-        margin: 80px;    
-        letter-spacing: 0.025em;           
+        margin: 80px;
+        letter-spacing: 0.025em;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    }  
-    .index-header-02{
-        font-size: 34px;  
+    }
+    .index-header-02 {
+        font-size: 34px;
         letter-spacing: 0.025em;
     }
-    .index-toggle-but{
-        font-size: 14px;    
+    .index-toggle-but {
+        font-size: 14px;
         width: 80px;
-        height: 35px;    
+        height: 35px;
         margin-right: 15px;
-        margin-left: 15px;        
+        margin-left: 15px;
     }
-
     /*login page*/
-    .header{
+    .header {
         font-size: 24px;
         margin-top: 75px;
         letter-spacing: 0.025em;
-        text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);        
+        text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
     }
-    .header-02{    
-        font-size: 28px;  
+    .header-02 {
+        font-size: 28px;
         letter-spacing: 0.025em;
     }
-    .login-box{
+    .login-box {
         width: 280px;
-        height: 380px;   
-        border-radius: 10px;     
+        height: 380px;
+        border-radius: 10px;
     }
-    .login-head h3{   
+    .login-head h3 {
         font-size: 24px;
-        line-height: 2px;   
-        letter-spacing: 0.025em;   
+        line-height: 2px;
+        letter-spacing: 0.025em;
         text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
     }
-    .input-feild input{
-        font-size: 14px;    
+    .input-feild input {
+        font-size: 14px;
         width: 230px;
         height: 45px;
         margin: 10px 0;
-        
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;    
-    }  
-    .button-div p{
+        border-radius: 5px;
+    }
+    .button-div p {
         font-size: 12px;
     }
-    .toggle-but{
-        font-size: 14px;    
+    .toggle-but {
+        font-size: 14px;
         width: 230px;
-        height: 45px; 
-        margin: 10px 0;  
-    }
-    .toggle-but-back{
-        font-size: 14px;    
-        width: 170px;
-        height: 45px;   
+        height: 45px;
         margin: 10px 0;
     }
-
+    .toggle-but-back {
+        font-size: 14px;
+        width: 170px;
+        height: 45px;
+        margin: 10px 0;
+    }
     /*register page*/
-    .register-box{
+    .register-box {
         width: 300px;
         height: 485px;
         border-radius: 10px;
-    }    
-    .register-box p{
+    }
+    .register-box p {
         font-size: 14px;
     }
-    .input-feild-regis input{
-        font-size: 14px;    
+    .input-feild-regis input {
+        font-size: 14px;
         width: 250px;
         height: 35px;
         margin: 6px 0;
         padding-left: 10px;
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;    
+        border-radius: 5px;
     }
-    .input-feild-regisGender{        
-        word-spacing: 9.5px; 
+    .input-feild-regisGender {
+        word-spacing: 9.5px;
     }
-    .input-feild-regisBD{         
-        word-spacing: 35px;   
+    .input-feild-regisBD {
+        word-spacing: 35px;
     }
-    .input-feild-regisBD input{        
-        font-size: 14px;        
+    .input-feild-regisBD input {
+        font-size: 14px;
         width: 150px;
         height: 35px;
-        margin: 6px 0;    
-        margin-right: 20px;        
+        margin: 6px 0;
+        margin-right: 20px;
         padding-left: 15px;
-        padding-left: 20px; 
-    
+        padding-left: 20px;
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;    
+        border-radius: 5px;
     }
-    .toggle-but02{
-        font-size: 14px;        
+    .toggle-but02 {
+        font-size: 14px;
         width: 110px;
         height: 35px;
         margin-right: 10px;
         margin-left: 10px;
     }
-
     /*resetpassword page*/
-    .resetpass-box{
+    .resetpass-box {
         width: 300px;
-        height: 306px;  
-        border-radius: 10px;          
+        height: 306px;
+        border-radius: 10px;
     }
-    .input-feild-reset input{
-        font-size: 14px;        
+    .input-feild-reset input {
+        font-size: 14px;
         width: 250px;
         height: 45px;
-        margin: 6px 0;   
-        padding-left: 10px;      
+        margin: 6px 0;
+        padding-left: 10px;
         box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 5px;    
-    }    
+        border-radius: 5px;
+    }
 }
