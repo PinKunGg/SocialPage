@@ -440,7 +440,7 @@ body {
 .user-box img {
     width: 120px;
     height: 120px;
-    opacity: 50%;
+    /* opacity: 50%; */
     transform: translate(8%, 7%);
 }
 

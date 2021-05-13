@@ -3,7 +3,21 @@ window.onload = pageload;
 function pageload() {
     document.cookie = "username=;"
     var but = document.getElementById("loginbut");
-    but.onclick = sendsubmitlogin;
+    but.onclick = submitlogin;
+}
+
+function submitlogin() {
+    var form = document.getElementById("loginform");
+    for (var i = 0; i < form.elements.length; i++) {
+        if (form.elements[i].hasAttribute('required')) {
+            if (form.elements[i].value == "") {
+                alert("Fill out all requied!");
+                return false;
+            }
+        } else if (i == form.elements.length - 1) {
+            sendsubmitlogin();
+        }
+    }
 }
 
 const sendsubmitlogin = (async() => {

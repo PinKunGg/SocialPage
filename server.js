@@ -3,11 +3,15 @@ const app = express();
 const hostname = 'localhost';
 const port = 3001;
 const bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+const multer = require('multer');
+const path = require('path');
 const mysql = require('mysql');
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -35,18 +39,45 @@ const queryDB = (sql) => {
     })
 }
 
+const storage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, 'img/');
+    },
+
+    filename: (req, file, cb) => {
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    }
+});
+
+const imageFilter = (req, file, cb) => {
+    // Accept images only
+    if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
+        req.fileValidationError = 'Only image files are allowed!';
+        return cb(new Error('Only image files are allowed!'), false);
+    }
+    cb(null, true);
+};
+
 app.post("/registerform", async(req, res) => {
     console.log(req.body);
-    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, email VARCHAR(255),password VARCHAR(100),firstname VARCHAR(100),lastname VARCHAR(100),gender VARCHAR(100),birthday VARCHAR(100))";
+    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, email VARCHAR(255),password VARCHAR(100),firstname VARCHAR(100),lastname VARCHAR(100),gender VARCHAR(100),birthday VARCHAR(100),profilepic VARCHAR(255))";
     let result = await queryDB(sql);
-    sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}")`;
-    result = await queryDB(sql);
-    console.log("Register Success!");
-    res.end("true");
+    let sqldata = `SELECT email FROM userInfo WHERE email = '${req.body.email}'`;
+    let resultdata = await queryDB(sqldata);
+
+    if (resultdata == "") {
+        sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday, profilepic) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}","${req.body.profilepic}")`;
+        result = await queryDB(sql);
+        console.log("Register Success!");
+        res.end("true");
+    } else {
+        console.log("same_eamil");
+        res.end(JSON.stringify("same_eamil"));
+    }
 })
 
 app.post("/loginform", async(req, res) => {
-    let sqldata = `SELECT email,password,firstname FROM userInfo WHERE email = '${req.body.email}'`;
+    let sqldata = `SELECT email,password,firstname,profilepic FROM userInfo WHERE email = '${req.body.email}'`;
     let resultdata = await queryDB(sqldata);
 
     console.log(resultdata);
@@ -58,6 +89,8 @@ app.post("/loginform", async(req, res) => {
         if (resultdata[0].email == req.body.email) {
             if (resultdata[0].password == req.body.password) {
                 res.cookie('username', resultdata[0].firstname, { maxAge: 86400000 }, 'path =/')
+                res.cookie('profilepic', resultdata[0].profilepic, { maxAge: 86400000 }, 'path =/')
+                res.cookie('email', resultdata[0].email, { maxAge: 86400000 }, 'path =/')
                 console.log("Login success");
                 res.end("true");
             } else {
@@ -75,16 +108,56 @@ app.post("/loginform", async(req, res) => {
 })
 
 app.post("/resetPassword", async(req, res) => {
-    let sql = `UPDATE ${tablename} SET password = '${req.body.password}' WHERE email = '${req.body.email}'`;
-    let result = await queryDB(sql);
-    console.log(result);
-    res.end("Record updated successfully");
+    let sqldata = `SELECT email,password FROM userInfo WHERE email = '${req.body.email}'`;
+    let resultdata = await queryDB(sqldata);
+
+    if (resultdata == "") {
+        res.end("false");
+        console.log("Updated password fail");
+    } else {
+        let sql = `UPDATE ${tablename} SET password = '${req.body.password}' WHERE email = '${req.body.email}'`;
+        let result = await queryDB(sql);
+        res.end("true");
+        console.log("Updated password successfully");
+    }
+
 })
 
 app.get("/logout", (req, res) => {
     res.clearCookie('username');
+    res.clearCookie('email');
+    res.clearCookie('profilepic');
     return res.redirect('index.html');
 })
+
+app.post('/profilepic', (req, res) => {
+    let upload = multer({ storage: storage, fileFilter: imageFilter }).single('avatar');
+
+    upload(req, res, (err) => {
+
+        if (req.fileValidationError) {
+            return res.send(req.fileValidationError);
+        } else if (!req.file) {
+            return res.send('Please select an image to upload');
+        } else if (err instanceof multer.MulterError) {
+            return res.send(err);
+        } else if (err) {
+            return res.send(err);
+        }
+
+        console.log('You uploaded this image filename: ' + req.file.filename);
+        updateImg(req.cookies.email, req.file.filename);
+        res.cookie("profilepic", req.file.filename);
+        return res.redirect('home.html')
+    });
+})
+
+const updateImg = async(email, filename) => {
+    let sql = `UPDATE ${tablename} SET profilepic = '${filename}' WHERE email = '${email}'`;
+    let result = await queryDB(sql);
+    console.log("Updated profilepic successfully");
+    //console.log(result);
+}
 
 let postdata = null;
 

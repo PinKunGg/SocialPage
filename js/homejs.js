@@ -23,6 +23,46 @@ function pageload() {
     var postbut = document.getElementById("submitpost");
     postbut.onclick = submitpost;
     document.getElementById("username").innerHTML = getCookie('username');
+    showImg('img/' + getCookie('profilepic'));
+
+    document.getElementById('displayPic').onclick = fileUpload;
+    document.getElementById('fileField').onchange = fileSubmit;
+}
+
+function showImg(filename) {
+    console.log(filename);
+    var http = new XMLHttpRequest();
+    http.open('HEAD', filename, false);
+    http.send();
+    if (http.status != 404) {
+        if (filename !== "") {
+            var showpic = document.getElementById('displayPic');
+            showpic.innerHTML = "";
+            var temp = document.createElement("img");
+            temp.src = filename;
+            showpic.appendChild(temp);
+        }
+    } else {
+        if (filename !== "") {
+            var showpic = document.getElementById('displayPic');
+            showpic.innerHTML = "";
+            var temp = document.createElement("img");
+            temp.src = 'img/user.png';
+            showpic.appendChild(temp);
+        }
+    }
+
+
+}
+
+function fileUpload() {
+    document.getElementById('fileField').click();
+    console.log("1");
+}
+
+function fileSubmit() {
+    document.getElementById('formId').submit();
+    console.log("2");
 }
 
 const submitpost = (async() => {

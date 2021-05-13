@@ -19,13 +19,13 @@
         <div class="navbar-option">
             <ul>
                 <li>
-                    <a href="#>"><img id="navpic" src="pic/home.png"></a>
+                    <a href="home.html"><img id="navpic" src="pic/home.png"></a>
                 </li>
                 <div class="dropdown">
                     <li><img id="navpic" src="pic/menu.png" class="dropbtn"></button>
                     </li>
                     <div class="dropdown-content">
-                        <a href="#">Profile</a>
+                        <a href="profile.html">Profile</a>
                         <hr>
                         <a href="/logout">Logout</a>
                     </div>
@@ -37,7 +37,13 @@
         <div class="grid-container">
             <div id="user-boxbg">
                 <div class="user-box">
-                    <img src="pic/user.png">
+                    <!-- <img src="pic/user.png"> -->
+                    <div id="displayPic">
+                        <!-- <img src="img/user.png" alt=""> -->
+                    </div>
+                    <form action="/profilepic" method="post" id="formId" enctype="multipart/form-data">
+                        <input type="file" id="fileField" name="avatar" value="fileToUpload" placeholder="" hidden>
+                    </form>
                 </div>
             </div>
             <div id="namebox">
