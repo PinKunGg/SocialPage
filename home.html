@@ -35,7 +35,7 @@
     </div>
     <div class="main">
         <div class="grid-container">
-            <div id="user-boxbg">
+            <div id="user-bgbox">
                 <div class="user-box">
                     <!-- <img src="pic/user.png"> -->
                     <div id="displayPic">
@@ -48,9 +48,9 @@
             </div>
             <div id="namebox">
                 <!-- <input type="text" name="username" id="username" value="Test001"> -->
-                <span name="username" id="username"></span>
+                <span name="username" id="username">ans.rach</span>
             </div>
-            <div id="bgpost-box">
+            <div id="userpost-box">
                 <div id="post">
                     <p>
                         <textarea name="postinput" id="postinput" cols="50" rows="5" placeholder="Hello world"></textarea>
@@ -65,14 +65,31 @@
                 <hr>
             </div>
             <div id="feedcontainer">
-                <div>
-                    <h3>User</h3>
-                    <p>content</p>
-                    <span>0</span>
-                    <button type="button">like</button>
-                    <br>
-                    <small>2021-05-13 / 01:16</small>
-                    <hr>
+                <div class="allpost-box">
+                    <div class="grid-container-allpost">
+                        <div id="poster">
+                            <div class="poster-bgbox">
+                                <div class="poster-box">
+                                    <img src="pic/zero-02.png">
+                                </div>
+                            </div>
+                            <div class="poster-name">
+                                <span>ans.rach</span>                                
+                            </div> 
+                            <div class="post-time">
+                                <small>2021-05-13 / 01:16</small>
+                            </div>                           
+                        </div>
+                        <div id="content">
+                            <div class="content-box">
+                                <p>content</p>
+                            </div>  
+                            <div class="likebut-div">           
+                                <img src="pic/heart.png">                    
+                                <button type="button" class="like-but">10</button>
+                            </div>                                                      
+                        </div>                               
+                    </div>                                
                 </div>
             </div>
         </div>
