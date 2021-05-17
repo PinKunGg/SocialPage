@@ -639,8 +639,11 @@ body {
     align-items: center;
     justify-content: center;
     grid-auto-flow: column;
-    grid-gap: 10%;    
-    transform: translate(0%, 26.25%);
+    grid-gap: 10%; 
+    height: 90vh;
+    /*grid-template-columns: 10% auto 10%;*/  
+    
+    /*transform: translate(0%, 26.25%);*/
 }
 
 #user-profile{
