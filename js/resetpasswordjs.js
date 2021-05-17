@@ -4,6 +4,7 @@ function pageload() {
     document.cookie = "username=;"
     document.cookie = "profilepic=;"
     document.cookie = "email=;"
+    document.cookie = "user_id=;"
     var but = document.getElementById("applybut");
     but.onclick = applyresetpass;
     console.log(document.getElementById("resetform").elements.length);
