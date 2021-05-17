@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="pic/favicon_32px.ico" sizes="32x32" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <title>Twinkle Hub</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <span contenteditable="false">Twinkle</span>
+            <span contenteditable="false">Hub</span>
+        </div>
+        <div class="navbar-option">
+            <ul>
+                <li>
+                    <a href="home.html"><img id="navpic" src="pic/home.png"></a>
+                </li>
+                <div class="dropdown">
+                    <li><img id="navpic" src="pic/menu.png" class="dropbtn"></button>
+                    </li>
+                    <div class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <hr>
+                        <a href="/logout">Logout</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="grid-container-profile">
+        <div id="user-profile">
+            <div class="user-boxbg-profile">
+                <div class="user-box-profile">
+                    <!-- <img src="pic/user.png"> -->
+                    <div id="displayPic">
+                        <!-- <img src="img/user.png" alt=""> -->
+                    </div>
+                    <form action="/profilepic" method="post" id="formId" enctype="multipart/form-data">
+                        <input type="file" id="fileField" name="avatar" value="fileToUpload" placeholder="" hidden>
+                    </form>
+                </div>
+            </div>
+            <div class="profile-but">
+                <a href="#"><button class="uplodeAvatar-but">Uplode your avatar</button></a>
+            </div>
+        </div>
+        <div id="editProfile-box">
+            <div class="login-head">
+                <h3>Profile</h3>
+            </div>
+            <div class="editInput">
+                <input type="text" name="firstname" placeholder="Firstname" required>
+            </div>
+            <div class="editGender">
+                <p>
+                    Gender
+                    <input type="radio" name="gender" value="male" required>Male
+                    <input type="radio" name="gender" value="female" required>Female
+                    <input type="radio" name="gender" value="other" required>Other
+                </p>
+            </div>
+            <div class="editBD">
+                <p>Birthday <input type="date" name="bday" value="" required></p>
+            </div>
+            <div class="editStatus">
+                <p>
+                    Status
+                    <input type="text" name="firstname" placeholder="write your status" required>
+                </p>
+            </div>
+            <hr>
+            <div class="button-div">
+                <a href="#"><Button type="button" class="Apply-but" value="BackBut">Apply</Button></a>
+            </div>
+        </div>
+    </div>
+    <script src="js/profilejs.js"></script>
+</body>
+
+</html>
