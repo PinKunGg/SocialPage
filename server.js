@@ -163,7 +163,7 @@ let postdata = null;
 
 app.post("/submitpost", async(req, res) => {
     //console.log(req.body);
-    writePost(req.body);
+    writePost(req);
     postdata = await readPost();
     console.log("Send data to client!")
     res.end(postdata);
@@ -178,9 +178,9 @@ app.get("/readallpost", async(req, res) => {
 const writePost = async(data) => {
     return new Promise((resolve, rejects) => {
         //console.log(data);
-        let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date TIMESTAMP, username VARCHAR(255),post VARCHAR(255),like_count VARCHAR(100))";
+        let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date TIMESTAMP, username VARCHAR(255), email VARCHAR(255), post VARCHAR(255),like_count VARCHAR(100))";
         let result = queryDB(sql);
-        sql = `INSERT INTO postInfo (username, post, like_count) VALUES ("${data.username}", "${data.post}", "${data.likecount}")`;
+        sql = `INSERT INTO postInfo (username, email, post, like_count) VALUES ("${data.cookies.username}","${data.cookies.email}", "${data.body.post}", "${data.body.likecount}")`;
         result = queryDB(sql);
         console.log("Post Success!");
         resolve("Post Success!");
