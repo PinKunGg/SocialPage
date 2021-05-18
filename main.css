@@ -5,6 +5,7 @@ body {
     background-color: #011814;
 }
 
+
 /*index.html*/
 
 .index-center {
@@ -452,7 +453,7 @@ body {
 
 .grid-container span {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 36px;    
+    font-size: 36px;
     color: #664e4e;
     background: #0CE8C0;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -519,38 +520,38 @@ body {
 }
 
 #feedcontainer {
-    grid-column: 1/span 3;    
+    grid-column: 1/span 3;
     color: rgb(224, 255, 243);
 }
 
-.allpost-box{
+.allpost-box {
     width: 900px;
-    height: 220px;    
+    height: 220px;
     background-color: #d6d5d5;
     border-radius: 30px;
 }
 
-.grid-container-allpost{
-    display: grid;        
+.grid-container-allpost {
+    display: grid;
     align-items: center;
     justify-content: center;
     grid-auto-flow: column;
-    grid-gap: 2.5%;    
+    grid-gap: 2.5%;
 }
 
-#poster{
+#poster {
     grid-column: 1/span 1;
     transform: translate(0%, 8%);
 }
 
-.poster-bgbox{
+.poster-bgbox {
     width: 130px;
     height: 130px;
     background-color: #f0f0f0;
     border-radius: 100px;
 }
 
-.poster-box{
+.poster-box {
     width: 113px;
     height: 113px;
     background-color: #FDFDFD;
@@ -558,43 +559,43 @@ body {
     transform: translate(7%, 7.5%);
 }
 
-.poster-box img{
+.poster-box img {
     width: 113px;
     height: 113px;
-    border-radius: 100px;    
+    border-radius: 100px;
 }
 
-.poster-name{
+.poster-name {
     text-align: center;
     margin-top: 7.5%;
 }
 
-.poster-name span{    
-    font-size: 18px;   
+.poster-name span {
+    font-size: 18px;
 }
 
-.post-time{
+.post-time {
     text-align: center;
     margin-top: 5%;
 }
 
-.post-time small{
+.post-time small {
     font-size: 12px;
     color: #664e4e;
 }
 
-#content{
-    grid-column: 2/span 1;    
+#content {
+    grid-column: 2/span 1;
 }
 
-.content-box{
+.content-box {
     width: 675px;
     height: 140px;
     background-color: #FDFDFD;
     border-radius: 20px;
 }
 
-.content-box p{
+.content-box p {
     font-size: 18px;
     padding-top: 10px;
     padding-left: 20px;
@@ -602,13 +603,13 @@ body {
     color: #664e4e;
 }
 
-.likebut-div{
+.likebut-div {
     text-align: right;
     padding-right: 5%;
     transform: translate(0%, -50%);
 }
 
-.like-but{
+.like-but {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 14px;
     padding: 10px;
@@ -625,39 +626,39 @@ body {
     border-radius: 10px;
 }
 
-.likebut-div img{
+.likebut-div img {
     width: 25px;
     height: 25px;
     opacity: 50%;
     transform: translate(175%, 25%);
 }
 
+
 /*Profile.html*/
 
-.grid-container-profile{
-    display: grid;        
+.grid-container-profile {
+    display: grid;
     align-items: center;
     justify-content: center;
     grid-auto-flow: column;
-    grid-gap: 10%; 
+    grid-gap: 10%;
     height: 90vh;
-    /*grid-template-columns: 10% auto 10%;*/  
-    
+    /*grid-template-columns: 10% auto 10%;*/
     /*transform: translate(0%, 26.25%);*/
 }
 
-#user-profile{
-    grid-column: 1/span 1;  
+#user-profile {
+    grid-column: 1/span 1;
 }
 
-.user-boxbg-profile{    
+.user-boxbg-profile {
     width: 270px;
     height: 270px;
     background-color: #d6d5d5;
-    border-radius: 30px;    
+    border-radius: 30px;
 }
 
-.user-box-profile{
+.user-box-profile {
     width: 235px;
     height: 235px;
     background-color: #FDFDFD;
@@ -665,21 +666,21 @@ body {
     transform: translate(7%, 7.5%);
 }
 
-.profile-but{
+.profile-but {
     text-align: center;
     margin-top: 10%;
 }
 
-.profile-but a{
+.profile-but a {
     color: #757575;
     text-decoration: none;
 }
 
-.profile-but a:hover{
+.profile-but a:hover {
     opacity: 70%;
 }
 
-.uplodeAvatar-but{    
+.uplodeAvatar-but {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;
     width: 200px;
@@ -696,29 +697,29 @@ body {
     border-radius: 5px;
 }
 
-#editProfile-box{
+#editProfile-box {
     grid-column: 2/span 1;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
     font-size: 18px;
     width: 400px;
-    height: 430px;
-    margin: auto;   
+    height: 650px;
+    margin: auto;
     background: rgb(224, 224, 224);
     border-radius: 15px;
 }
 
-.editInput{
+.editInput {
     text-align: center;
 }
 
-.editInput input{
+.editInput input {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
-    font-size: 16px;   
+    font-size: 16px;
     margin: 8px 0;
     width: 350px;
-    height: 45px;    
+    height: 45px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
@@ -728,17 +729,17 @@ body {
     border-radius: 5px;
 }
 
-.editGender{
+.editGender {
     padding-left: 20px;
     word-spacing: 28px;
 }
 
-.editBD{
+.editBD {
     padding-left: 20px;
     word-spacing: 27px;
 }
 
-.editBD input{   
+.editBD input {
     font-weight: 50%;
     font-size: 14px;
     line-height: 18px;
@@ -756,17 +757,17 @@ body {
     border-radius: 5px;
 }
 
-.editStatus{
+.editStatus {
     padding-left: 20px;
     word-spacing: 27px;
 }
 
-.editStatus input{
+.editStatus input {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 50%;
-    font-size: 16px;  
+    font-size: 16px;
     width: 266px;
-    height: 45px;    
+    height: 45px;
     border-left: 0;
     border-top: 0;
     border-right: 0;
@@ -776,7 +777,7 @@ body {
     border-radius: 5px;
 }
 
-.Apply-but{
+.Apply-but {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 18px;
     padding: 5px;
@@ -792,6 +793,7 @@ body {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
     border-radius: 5px;
 }
+
 
 /*Responsive design for mobile mode*/
 

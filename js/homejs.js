@@ -18,7 +18,7 @@ function getCookie(name) {
     }
 }
 
-async function pageload() {
+function pageload() {
     readAllPost();
     var postbut = document.getElementById("submitpost");
     postbut.onclick = submitpost;

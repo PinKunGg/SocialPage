@@ -232,6 +232,12 @@ const updateLikePost = async(postid) => {
     return JSON.stringify(x);
 }
 
+app.get("/getprofile", async(req, res) => {
+    let sql = `SELECT * FROM userInfo WHERE email = '${req.cookies.email}'`;
+    let result = await queryDB(sql);
+    res.end(JSON.stringify(result));
+})
+
 app.listen(port, hostname, () => {
     console.log(`Server running at   http://${hostname}:${port}/`);
 });
