@@ -24,7 +24,7 @@ function pageload() {
     postbut.onclick = submitpost;
     document.getElementById("username").innerHTML = getCookie('username');
     showImg('img/' + getCookie('profilepic'));
-    getProfileData();
+    //getProfileData();
 }
 
 const getProfileData = (async() => {

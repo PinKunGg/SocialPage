@@ -121,7 +121,6 @@ app.post("/resetPassword", async(req, res) => {
         res.end("true");
         console.log("Updated password successfully");
     }
-
 })
 
 app.get("/logout", (req, res) => {
@@ -149,7 +148,7 @@ app.post('/profilepic', (req, res) => {
         console.log('You uploaded this image filename: ' + req.file.filename);
         updateImg(req.cookies.email, req.file.filename);
         res.cookie("profilepic", req.file.filename);
-        return res.redirect('home.html')
+        return res.redirect('profile_setting.html')
     });
 })
 
@@ -233,6 +232,7 @@ const updateLikePost = async(postid) => {
 }
 
 app.get("/getprofile", async(req, res) => {
+    console.log(req.header.referer);
     let sql = `SELECT * FROM userInfo WHERE email = '${req.cookies.email}'`;
     let result = await queryDB(sql);
     res.end(JSON.stringify(result));
