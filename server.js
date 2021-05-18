@@ -60,13 +60,13 @@ const imageFilter = (req, file, cb) => {
 
 app.post("/registerform", async(req, res) => {
     console.log(req.body);
-    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date DATETIME DEFAULT CURRENT_TIMESTAMP, email VARCHAR(255),password VARCHAR(100),firstname VARCHAR(100),lastname VARCHAR(100),gender VARCHAR(100),birthday VARCHAR(100),profilepic VARCHAR(255))";
+    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date DATETIME DEFAULT CURRENT_TIMESTAMP, email VARCHAR(255),password VARCHAR(100),firstname VARCHAR(100),lastname VARCHAR(100),gender VARCHAR(100),birthday VARCHAR(100),profilepic VARCHAR(255),status VARCHAR(255))";
     let result = await queryDB(sql);
     let sqldata = `SELECT email FROM userInfo WHERE email = '${req.body.email}'`;
     let resultdata = await queryDB(sqldata);
 
     if (resultdata == "") {
-        sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday, profilepic) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}","${req.body.profilepic}")`;
+        sql = `INSERT INTO userInfo (email, password, firstname, lastname, gender, birthday, profilepic,status) VALUES ("${req.body.email}", "${req.body.password}", "${req.body.firstname}", "${req.body.lastname}", "${req.body.gender}", "${req.body.birthday}","${req.body.profilepic}","Hi")`;
         result = await queryDB(sql);
         console.log("Register Success!");
         res.end("true");
@@ -236,6 +236,42 @@ app.get("/getprofile", async(req, res) => {
     let sql = `SELECT * FROM userInfo WHERE email = '${req.cookies.email}'`;
     let result = await queryDB(sql);
     res.end(JSON.stringify(result));
+})
+
+app.post("/updateprofile", async(req, res) => {
+    let sql = `UPDATE ${tablename} SET email = '${req.body.email}',password = '${req.body.password}',firstname = '${req.body.firstname}',lastname = '${req.body.lastname}',gender = '${req.body.gender}',birthday = '${req.body.birthday}',status = '${req.body.status}' WHERE id = '${req.cookies.user_id}'`;
+    let result = await queryDB(sql);
+    res.end(JSON.stringify("Updated profile successfully"));
+    console.log("Updated profile successfully");
+})
+
+let postprofiledata = null;
+
+app.get("/readallprofilepost", async(req, res) => {
+    postprofiledata = await readProfilePost(req);
+    console.log("Send data to client!")
+    res.end(postprofiledata);
+})
+const readProfilePost = async(data) => {
+    return new Promise((resolve, reject) => {
+        con.query(`SELECT id,DATE_FORMAT(post_date,"%Y-%m-%d %H:%i")AS post_date,username,email,post,like_count,like_user FROM postInfo WHERE email = '${data.cookies.email}'`, async function(err, result, fields) {
+            if (err) {
+                //console.log(err);
+                resolve(JSON.stringify("No post found", null, "\t"));
+                reject(err);
+            } else {
+                console.log("Read Success!");
+                resolve(JSON.stringify(result, null, "\t"));
+            }
+        })
+    })
+}
+app.post("/submitprofilepost", async(req, res) => {
+    //console.log(req.body);
+    writePost(req);
+    postdata = await readProfilePost(req);
+    console.log("Send data to client!")
+    res.end(postdata);
 })
 
 app.listen(port, hostname, () => {

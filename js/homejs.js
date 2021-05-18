@@ -24,9 +24,6 @@ function pageload() {
     postbut.onclick = submitpost;
     document.getElementById("username").innerHTML = getCookie('username');
     showImg('img/' + getCookie('profilepic'));
-
-    document.getElementById('displayPic').onclick = fileUpload;
-    document.getElementById('fileField').onchange = fileSubmit;
 }
 
 function showImg(filename) {
@@ -51,16 +48,6 @@ function showImg(filename) {
             showpic.appendChild(temp);
         }
     }
-}
-
-function fileUpload() {
-    document.getElementById('fileField').click();
-    console.log("1");
-}
-
-function fileSubmit() {
-    document.getElementById('formId').submit();
-    console.log("2");
 }
 
 const submitpost = (async() => {
