@@ -403,14 +403,8 @@ body {
     display: block;
 }
 
-.grid-container {
-    /*display: flex;
-    align-items: center;
-    justify-content: center;*/
-    /*padding-right: 31.5%;
-    /*transform: translate(50%, 0%);*/
-    display: grid;
-    /*grid-template-columns: 17.5% auto; */
+.grid-container {    
+    display: grid;    
     grid-auto-flow: column;
     align-items: center;
     justify-content: center;
@@ -437,10 +431,9 @@ body {
 }
 
 .user-box img {
-    width: 120px;
-    height: 120px;
-    /* opacity: 50%; */
-    transform: translate(8%, 7%);
+    width: 175px;
+    height: 175px;
+    border-radius: 20px;    
 }
 
 #namebox {
@@ -633,37 +626,138 @@ body {
     transform: translate(175%, 25%);
 }
 
-
 /*Profile.html*/
 
-.grid-container-profile {
+.grid-container-profile{
+    display: grid;    
+    grid-auto-flow: column;    
+    justify-content: center;   
+    margin-top: 4%;
+    margin-bottom: 5%;
+    grid-gap: 2.5%;
+}
+
+.grid-container-profile span{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 28px;
+    color: #664e4e;
+    background: #0CE8C0;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
+    padding: 0 0.5vw 0.5vw 0.5vw;
+    border-radius: 10px;
+}
+
+#user-bgbox-profile{
+    grid-column: 1/span 1;
+    width: 200px;
+    height: 200px;
+    background-color: #d6d5d5;
+    border-radius: 30px;    
+}
+
+.namebox{
+    text-align: center;    
+    transform: translate(0%, 50%);
+}
+
+.setting-but{
+    width: 45px;
+    height: 45px;
+    background: 0;
+    border: 0;
+    outline: none;
+    background: #0CE8C0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}
+
+.setting-but-div{
+    transform: translate(0%, 50%);
+}
+
+.setting-but-div img{
+    width: 35px;
+    height: 35px;  
+    opacity: 70%;  
+    transform: translate(-2%, 7%);
+}
+
+.setting-but-div a:hover{
+    opacity: 70%;
+}
+
+#profile-post{
+    grid-column: 2/span 2;    
+}
+
+.userpost-box-profile{    
+    width: 900px;
+    height: 285px;    
+    background-color: #d6d5d5;
+    border-radius: 30px;
+}
+
+.userpost-box-profile textarea{
+    width: 820px;
+    height: 215px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 18px;
+    background-color: #FDFDFD;
+    resize: none;
+    border: none;
+    border-radius: 20px;
+}
+
+.feedcontainer-profile{
+    transform: translate(0%, 20%);
+}
+
+.poster-name-profile{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.poster-name-profile span{
+    font-size: 18px;
+}
+
+/*Profile_setting.html*/
+
+.grid-container-profile_setting {
     display: grid;
     align-items: center;
     justify-content: center;
     grid-auto-flow: column;
     grid-gap: 10%;
-    height: 90vh;
-    /*grid-template-columns: 10% auto 10%;*/
-    /*transform: translate(0%, 26.25%);*/
+    height: 90vh;    
 }
 
-#user-profile {
+#user-profile_setting {
     grid-column: 1/span 1;
 }
 
-.user-boxbg-profile {
+.user-boxbg-profile_setting {
     width: 270px;
     height: 270px;
     background-color: #d6d5d5;
     border-radius: 30px;
 }
 
-.user-box-profile {
+.user-box-profile_setting {
     width: 235px;
     height: 235px;
     background-color: #FDFDFD;
     border-radius: 20px;
     transform: translate(7%, 7.5%);
+}
+
+.user-box-profile_setting img{
+    width: 235px;
+    height: 235px;
+    border-radius: 20px;
 }
 
 .profile-but {
