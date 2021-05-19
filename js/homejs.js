@@ -173,6 +173,7 @@ async function postfeed(data) {
             if (like_sid[j] == getCookie('user_id')) {
                 likeimg.src = "pic/heart-02.png";
                 likebutdiv.setAttribute("onclick", "");
+                break;
             } else {
                 likebutdiv.setAttribute("onclick", "likepost(this)");
             }
