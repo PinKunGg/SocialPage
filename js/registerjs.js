@@ -62,7 +62,8 @@ const confirmregister = (async() => {
             // console.log(data);
             if (data == true) {
                 alert("Register Success.");
-                document.getElementById("registerform").submit();
+                window.location = "login.html";
+                //document.getElementById("registerform").submit();
             } else if (data == "same_eamil") {
                 alert("Register Fail. Same email detect");
                 document.forms["registerform"]["email"].value = null;

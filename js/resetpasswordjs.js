@@ -53,7 +53,7 @@ const confirmresetpass = (async() => {
             // console.log(data);
             if (data == true) {
                 alert("Reset Password Success.");
-                document.getElementById("resetform").submit();
+                window.location = "login.html";
             } else {
                 alert("Not found any Email in database");
             }

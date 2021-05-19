@@ -133,7 +133,7 @@ async function postfeed(data) {
         posterbg.className = "poster-bgbox";
         posterbox.className = "poster-box";
 
-        await getPosterImg(posterimg, data[postkeys[i]].email);
+        await getPosterImg(posterimg, data[postkeys[i]].posterid);
 
         allpostbox.appendChild(gridallpost);
         gridallpost.appendChild(poster);
@@ -141,7 +141,8 @@ async function postfeed(data) {
         posterbg.appendChild(posterbox);
         posterbox.appendChild(posterimg);
 
-        username.innerHTML = data[postkeys[i]].username;
+        await getPosterUser(username, data[postkeys[i]].posterid)
+
         postername.className = "poster-name";
         poster.appendChild(postername);
         postername.appendChild(username);
@@ -189,7 +190,7 @@ async function postfeed(data) {
     }
 }
 
-const getPosterImg = (async(obj, posterEmail) => {
+const getPosterImg = (async(obj, posterid) => {
     await fetch("/getposterimg", {
         method: "POST",
         headers: {
@@ -197,11 +198,30 @@ const getPosterImg = (async(obj, posterEmail) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            posterEmail: posterEmail,
+            posterid: posterid,
         })
     }).then((response) => {
         response.json().then((data) => {
             obj.src = 'img/' + data;
+        });
+    }).catch((err) => {
+        console.log("ERROR = " + err);
+    });
+})
+
+const getPosterUser = (async(obj, posterid) => {
+    await fetch("/getposteruser", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            posterid: posterid,
+        })
+    }).then((response) => {
+        response.json().then((data) => {
+            obj.innerHTML = data;
         });
     }).catch((err) => {
         console.log("ERROR = " + err);

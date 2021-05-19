@@ -41,7 +41,8 @@ const sendsubmitlogin = (async() => {
             if (data == true) {
                 console.log("true!!");
                 alert("Login success");
-                document.getElementById("loginform").submit();
+                window.location = "home.html";
+                //document.getElementById("loginform").submit();
             } else if (data == false) {
                 console.log("false!!");
                 alert("Email or Password not correct");

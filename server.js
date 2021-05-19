@@ -178,9 +178,9 @@ app.get("/readallpost", async(req, res) => {
 const writePost = async(data) => {
     return new Promise((resolve, rejects) => {
         //console.log(data);
-        let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date DATETIME DEFAULT CURRENT_TIMESTAMP, username VARCHAR(255), email VARCHAR(255), post VARCHAR(255),like_count VARCHAR(100),like_user LONGTEXT)";
+        let sql = "CREATE TABLE IF NOT EXISTS postInfo (id INT AUTO_INCREMENT PRIMARY KEY, post_date DATETIME DEFAULT CURRENT_TIMESTAMP, username VARCHAR(255), posterid VARCHAR(255), post VARCHAR(255),like_count VARCHAR(100),like_user LONGTEXT)";
         let result = queryDB(sql);
-        sql = `INSERT INTO postInfo (username, email, post, like_count,like_user) VALUES ("${data.cookies.username}","${data.cookies.email}", "${data.body.post}", "${data.body.likecount}","0")`;
+        sql = `INSERT INTO postInfo (username, posterid, post, like_count,like_user) VALUES ("${data.cookies.username}","${data.cookies.user_id}", "${data.body.post}", "${data.body.likecount}","0")`;
         result = queryDB(sql);
         console.log("Post Success!");
         resolve("Post Success!");
@@ -189,7 +189,7 @@ const writePost = async(data) => {
 
 const readPost = async() => {
     return new Promise((resolve, reject) => {
-        con.query(`SELECT id,DATE_FORMAT(post_date,"%Y-%m-%d %H:%i")AS post_date,username,email,post,like_count,like_user FROM postInfo`, async function(err, result, fields) {
+        con.query(`SELECT id,DATE_FORMAT(post_date,"%Y-%m-%d %H:%i")AS post_date,username,posterid,post,like_count,like_user FROM postInfo`, async function(err, result, fields) {
             if (err) {
                 //console.log(err);
                 resolve(JSON.stringify("No post found", null, "\t"));
@@ -203,10 +203,17 @@ const readPost = async() => {
 }
 app.post("/getposterimg", async(req, res) => {
     //console.log(req.body.posterEmail);
-    let sqldata = `SELECT profilepic FROM userInfo WHERE email = '${req.body.posterEmail}'`;
+    let sqldata = `SELECT profilepic FROM userInfo WHERE id = '${req.body.posterid}'`;
     let resultdata = await queryDB(sqldata);
     //console.log(resultdata[0].profilepic);
     res.end(JSON.stringify(resultdata[0].profilepic));
+})
+app.post("/getposteruser", async(req, res) => {
+    //console.log(req.body.posterEmail);
+    let sqldata = `SELECT firstname FROM userInfo WHERE id = '${req.body.posterid}'`;
+    let resultdata = await queryDB(sqldata);
+    //console.log(resultdata[0].profilepic);
+    res.end(JSON.stringify(resultdata[0].firstname));
 })
 
 app.post("/likepost", async(req, res) => {
@@ -241,6 +248,12 @@ app.get("/getprofile", async(req, res) => {
 app.post("/updateprofile", async(req, res) => {
     let sql = `UPDATE ${tablename} SET email = '${req.body.email}',password = '${req.body.password}',firstname = '${req.body.firstname}',lastname = '${req.body.lastname}',gender = '${req.body.gender}',birthday = '${req.body.birthday}',status = '${req.body.status}' WHERE id = '${req.cookies.user_id}'`;
     let result = await queryDB(sql);
+    let sqldata = `SELECT id,email,password,firstname,profilepic FROM userInfo WHERE id = '${req.cookies.user_id}'`;
+    let resultdata = await queryDB(sqldata);
+    res.cookie('username', resultdata[0].firstname, { maxAge: 86400000 }, 'path =/')
+    res.cookie('profilepic', resultdata[0].profilepic, { maxAge: 86400000 }, 'path =/')
+    res.cookie('email', resultdata[0].email, { maxAge: 86400000 }, 'path =/')
+    res.cookie('user_id', resultdata[0].id, { maxAge: 86400000 }, 'path =/')
     res.end(JSON.stringify("Updated profile successfully"));
     console.log("Updated profile successfully");
 })
@@ -254,7 +267,7 @@ app.get("/readallprofilepost", async(req, res) => {
 })
 const readProfilePost = async(data) => {
     return new Promise((resolve, reject) => {
-        con.query(`SELECT id,DATE_FORMAT(post_date,"%Y-%m-%d %H:%i")AS post_date,username,email,post,like_count,like_user FROM postInfo WHERE email = '${data.cookies.email}'`, async function(err, result, fields) {
+        con.query(`SELECT id,DATE_FORMAT(post_date,"%Y-%m-%d %H:%i")AS post_date,username,posterid,post,like_count,like_user FROM postInfo WHERE posterid = '${data.cookies.user_id}'`, async function(err, result, fields) {
             if (err) {
                 //console.log(err);
                 resolve(JSON.stringify("No post found", null, "\t"));
